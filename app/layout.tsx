@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter, Lora } from 'next/font/google';
 import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
+import ReadingEnhancers from './components/ReadingEnhancers';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const lora = Lora({ subsets: ['latin'], variable: '--font-serif' });
@@ -31,7 +32,8 @@ export default function RootLayout({
           <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
             <div>
               <Header />
-              <div className="space-y-8">
+              <ReadingEnhancers />
+              <div className="space-y-8" style={{ fontSize: 'calc(1rem * var(--font-scale))', transition: 'font-size 0.3s ease-out' }}>
                 {children}
               </div>
             </div>

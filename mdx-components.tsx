@@ -11,23 +11,23 @@ type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
 const components = {
   h1: (props: HeadingProps) => (
-    <h1 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-zinc-50 tracking-tight mb-4 pt-4" {...props} />
+    <h1 className="text-[1.875em] sm:text-[2.25em] font-semibold text-gray-900 dark:text-zinc-50 tracking-tight mb-4 pt-4" {...props} />
   ),
   h2: (props: HeadingProps) => (
     <h2
-      className="text-xl sm:text-2xl text-gray-800 dark:text-zinc-100 font-semibold tracking-tight mt-8 mb-3 border-b border-gray-100 dark:border-zinc-800 pb-2"
+      className="text-[1.25em] sm:text-[1.5em] text-gray-800 dark:text-zinc-100 font-semibold tracking-tight mt-8 mb-3 border-b border-gray-100 dark:border-zinc-800 pb-2"
       {...props}
     />
   ),
   h3: (props: HeadingProps) => (
     <h3
-      className="text-lg sm:text-xl text-gray-800 dark:text-zinc-100 font-medium tracking-tight mt-6 mb-2"
+      className="text-[1.125em] sm:text-[1.25em] text-gray-800 dark:text-zinc-100 font-medium tracking-tight mt-6 mb-2"
       {...props}
     />
   ),
-  h4: (props: HeadingProps) => <h4 className="font-medium text-base text-gray-800 dark:text-zinc-100" {...props} />,
+  h4: (props: HeadingProps) => <h4 className="font-medium text-[1em] text-gray-800 dark:text-zinc-100" {...props} />,
   p: (props: ParagraphProps) => (
-    <p className="text-gray-800 dark:text-zinc-300 leading-snug" {...props} />
+    <p className="text-gray-800 dark:text-zinc-300 leading-snug text-[1em]" {...props} />
   ),
   ol: (props: ListProps) => (
     <ol

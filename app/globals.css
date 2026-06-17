@@ -14,6 +14,7 @@
   --sh-jsxliterals: #7aa2f7;
   --sh-property: #73daca;
   --sh-entity: #e0af68;
+  --font-scale: 1;
 }
 
 html {
@@ -113,4 +114,19 @@ table {
   overflow-x: auto;
   white-space: nowrap;
   text-align: left;
+}
+
+/* Premium Reading Enhancements: Focus Mode */
+body header,
+body footer,
+body .focus-mode-hidden {
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+body.focus-mode header,
+body.focus-mode footer,
+body.focus-mode .focus-mode-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
