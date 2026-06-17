@@ -67,11 +67,7 @@ export default function ReadingEnhancers() {
 
   return (
     <>
-      {/* Reading Progress Bar (Fixed Top) with Gradient */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 origin-left z-50 shadow-sm"
-        style={{ scaleX: scrollYProgress }}
-      />
+      {/* Reading Progress Bar has been removed for a less distracting, minimalist reading experience. The percentage at the bottom still tracks progress. */}
 
       {/* Enhancements only visible on articles */}
       {isArticle && (

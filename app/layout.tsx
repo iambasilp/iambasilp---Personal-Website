@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
       <body className="antialiased tracking-tight">
-        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 dark:bg-[#161618] bg-[#FDFCF8] text-[#1c1c1a] dark:text-zinc-300">
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 dark:bg-[#1A1A19] bg-[#F7F5F0] text-[#2C2C2A] dark:text-[#E4E3DF]">
           <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
             <div>
               <Header />
