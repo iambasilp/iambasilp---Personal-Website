@@ -82,9 +82,9 @@ export default function ReadingEnhancers() {
               initial={{ opacity: 0, y: -5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-zinc-400 mb-2 transition-opacity duration-300 focus-mode-hidden"
+              className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-zinc-400 mb-2 transition-opacity duration-300 focus-mode-hidden"
             >
-              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="h-4 w-4 text-gray-400 dark:text-zinc-500" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
+              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="h-4 w-4 text-gray-500 dark:text-zinc-500" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
               {readingTime} min read
             </motion.div>
           )}
@@ -106,7 +106,7 @@ export default function ReadingEnhancers() {
                 className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300 transition-colors relative"
                 aria-label="Scroll to top"
               >
-                <span className="text-[9px] font-bold absolute -top-3 text-gray-400 dark:text-zinc-500">{readingPercent}%</span>
+                <span className="text-[9px] font-bold absolute -top-3 text-gray-600 dark:text-zinc-500">{readingPercent}%</span>
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="h-5 w-5" xmlns="http://www.w3.org/2000/svg"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path></svg>
               </motion.button>
             )}

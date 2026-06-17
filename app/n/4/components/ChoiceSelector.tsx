@@ -49,9 +49,9 @@ export default function ChoiceSelector({ id, question, options, reflection }: Ch
   return (
     <div className="my-8 p-6 bg-zinc-50/50 dark:bg-zinc-900/30 rounded-xl border border-zinc-100 dark:border-zinc-800/80">
       {question && (
-        <h4 className="font-semibold text-lg text-gray-800 dark:text-zinc-200 mb-4 font-serif">
+        <div className="font-semibold text-lg text-gray-800 dark:text-zinc-200 mb-4 font-serif">
           {question}
-        </h4>
+        </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -71,7 +71,7 @@ export default function ChoiceSelector({ id, question, options, reflection }: Ch
                   {opt.icon && <span className="text-xl">{opt.icon}</span>}
                   <span className="font-semibold tracking-tight text-base">{opt.name}</span>
                 </div>
-                <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1 leading-snug">
+                <p className="text-sm text-gray-600 dark:text-zinc-400 mt-1 leading-snug">
                   {opt.description}
                 </p>
               </div>
