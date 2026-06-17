@@ -80,7 +80,7 @@ function Header() {
         <Link href="/" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Home
         </Link>
-        <Link href="/#writing" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
+        <Link href="/writing" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Writing
         </Link>
       </nav>
