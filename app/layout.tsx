@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 import ReadingEnhancers from './components/ReadingEnhancers';
 import ClickSound from './components/ClickSound';
+import AmbientDepth from './components/AmbientDepth';
+import AttentionMilestone from './components/AttentionMilestone';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const lora = Lora({ subsets: ['latin'], variable: '--font-serif' });
@@ -29,8 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
-      <body className="antialiased tracking-tight">
-        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 dark:bg-[#1A1A19] bg-[#F7F5F0] text-[#2C2C2A] dark:text-[#E4E3DF]">
+      <body className="antialiased tracking-tight bg-[#F7F5F0] dark:bg-[#1A1A19] relative z-0">
+        <AmbientDepth />
+        <AttentionMilestone />
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 text-[#2C2C2A] dark:text-[#E4E3DF]">
           <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
             <div>
               <Header />
@@ -39,7 +43,6 @@ export default function RootLayout({
                 {children}
               </div>
             </div>
-            <Footer />
           </main>
           <ClickSound />
           <Analytics />
@@ -50,45 +53,35 @@ export default function RootLayout({
 }
 
 
-function Footer() {
-  const links = [
-
-    { name: 'email', url: 'mailto:iambasilp@gmail.com' },
-
-  ];
-
-  return (
-    <footer className="mt-12 pt-6 border-t border-gray-100 dark:border-zinc-800 text-center">
-      <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 tracking-tight">
-        {links.map((link) => (
-          <a
-            key={link.name}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors duration-200"
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
-    </footer>
-  );
-}
-
 function Header() {
   return (
-    <header className="flex justify-between items-center mb-10 pb-4 border-b border-gray-100 dark:border-zinc-800">
-      <Link href="/" className="font-semibold text-lg hover:text-blue-500 transition-colors tracking-tight">
-        Basil Pulikuth
-      </Link>
-      <nav className="flex space-x-6 text-sm font-medium text-gray-600 dark:text-zinc-400">
+    <header className="flex justify-between items-start mb-10 pb-4 border-b border-[#E8E6E0] dark:border-zinc-800">
+      <div>
+        <Link href="/" className="font-semibold text-lg hover:text-gray-600 dark:hover:text-zinc-400 transition-colors tracking-tight block">
+          Basil Pulikuth
+        </Link>
+      </div>
+      <nav className="flex space-x-6 text-sm font-medium text-gray-600 dark:text-zinc-400 pt-1">
         <Link href="/" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Home
         </Link>
         <Link href="/writing" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Writing
         </Link>
+        <div className="relative group">
+          <button className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1 pb-4 -mb-4">
+            Connect
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="h-4 w-4 opacity-70 group-hover:rotate-180 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+          </button>
+          <div className="absolute right-0 top-full mt-2 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 bg-white dark:bg-[#20201F] border border-gray-100 dark:border-zinc-800 shadow-xl rounded-xl p-1.5 flex flex-col z-50">
+            <a href="mailto:iambasilp@gmail.com" className="px-3 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-800 hover:text-gray-900 dark:hover:text-zinc-100 rounded-lg transition-colors">
+              Email
+            </a>
+            <a href="https://wa.me/918848344415?text=Hey%20Basil!%20I%20was%20just%20reading%20your%20site%20and%20wanted%20to%20say%20hello.%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" className="px-3 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-800 hover:text-gray-900 dark:hover:text-zinc-100 rounded-lg transition-colors">
+              WhatsApp
+            </a>
+          </div>
+        </div>
       </nav>
     </header>
   );

@@ -15,7 +15,7 @@ export default function ClickSound() {
       }
     };
 
-    const playPopSound = () => {
+    const playPopSound = (volume: number, pitchBase: number) => {
       if (!audioCtxRef.current) return;
 
       const ctx = audioCtxRef.current;
@@ -29,14 +29,15 @@ export default function ClickSound() {
       osc.connect(gainNode);
       gainNode.connect(ctx.destination);
 
-      // A quick, loud "pop" or "click"
-      // Start at a higher frequency (600Hz) for a sharper click, then drop rapidly
+      // Random micro-variation so it never sounds exactly identical (Nir Eyal's Variable Reward)
+      const pitchVariation = pitchBase + (Math.random() * 50 - 25);
+      
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(600, ctx.currentTime);
+      osc.frequency.setValueAtTime(pitchVariation, ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
 
-      // Maximum volume envelope for the pop
-      gainNode.gain.setValueAtTime(1.0, ctx.currentTime);
+      // Volume envelope tailored to the specific interaction
+      gainNode.gain.setValueAtTime(volume, ctx.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
 
       osc.start(ctx.currentTime);
@@ -48,15 +49,19 @@ export default function ClickSound() {
       
       const target = e.target as HTMLElement;
       
-      // Determine if we clicked an interactive element or a child of one
+      const isHeaderLink = target.closest('header');
       const isInteractive = target.closest('a') || target.closest('button') || target.closest('input') || target.closest('[role="button"]') || target.closest('[role="link"]');
       
       if (isInteractive) {
-        playPopSound();
+        if (isHeaderLink) {
+          playPopSound(1.0, 400);
+        } else {
+          playPopSound(0.25, 750);
+        }
       }
     };
 
-    // Use capture phase to catch clicks even if propagation is stopped by other components
+    // Use capture phase to catch clicks
     window.addEventListener('click', handleClick, true);
 
     return () => {
