@@ -46,11 +46,9 @@ export default function RootLayout({
 
 function Footer() {
   const links = [
-    { name: '@iambasilp', url: 'https://x.com/iambasilp' },
+
     { name: 'email', url: 'mailto:iambasilp@gmail.com' },
-    { name: 'youtube', url: 'https://www.youtube.com/@iambasilp' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/iambasilp' },
-    { name: 'github', url: 'https://github.com/iambasilp' }
+
   ];
 
   return (
