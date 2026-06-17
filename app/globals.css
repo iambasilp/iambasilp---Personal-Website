@@ -68,7 +68,7 @@ pre code {
   line-height: 1.5;
 }
 
-pre code > span .sh__token--identifier {
+pre code>span .sh__token--identifier {
   color: white !important;
 }
 

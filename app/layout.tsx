@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
       <body className="antialiased tracking-tight">
-        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-16 lg:p-24 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
           <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
             <div>
               <Header />
@@ -54,7 +54,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="mt-16 pt-8 border-t border-gray-100 dark:border-zinc-800 text-center">
+    <footer className="mt-12 pt-6 border-t border-gray-100 dark:border-zinc-800 text-center">
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 tracking-tight">
         {links.map((link) => (
           <a
@@ -74,7 +74,7 @@ function Footer() {
 
 function Header() {
   return (
-    <header className="flex justify-between items-center mb-16 pb-6 border-b border-gray-100 dark:border-zinc-800">
+    <header className="flex justify-between items-center mb-10 pb-4 border-b border-gray-100 dark:border-zinc-800">
       <Link href="/" className="font-semibold text-lg hover:text-blue-500 transition-colors tracking-tight">
         Basil Pulikuth
       </Link>
