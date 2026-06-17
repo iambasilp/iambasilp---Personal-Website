@@ -6,13 +6,13 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://next-mdx-blog.vercel.app'),
+  metadataBase: new URL('https://iambasilp.vercel.app'),
   alternates: {
     canonical: '/'
   },
   title: {
-    default: 'John Smith',
-    template: '%s | John Smith'
+    default: 'Basil Pulikuth',
+    template: '%s | Basil Pulikuth'
   },
   description: 'My portfolio, blog, and personal website.'
 };
@@ -39,10 +39,10 @@ export default function RootLayout({
 
 function Footer() {
   const links = [
-    { name: '@johnsmith', url: 'https://x.com/johnsmith' },
-    { name: 'youtube', url: 'https://www.youtube.com/@johnsmith' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/johnsmith' },
-    { name: 'github', url: 'https://github.com/johnsmith' }
+    { name: '@iambasilp', url: 'https://x.com/iambasilp' },
+    { name: 'youtube', url: 'https://www.youtube.com/@iambasilp' },
+    { name: 'linkedin', url: 'https://www.linkedin.com/in/iambasilp' },
+    { name: 'github', url: 'https://github.com/iambasilp' }
   ];
 
   return (
