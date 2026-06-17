@@ -1,9 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Lora } from 'next/font/google';
+import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const lora = Lora({ subsets: ['latin'], variable: '--font-serif' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://iambasilp.vercel.app'),
@@ -23,12 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
       <body className="antialiased tracking-tight">
         <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-16 lg:p-24 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
           <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
-            <div className="space-y-8">
-              {children}
+            <div>
+              <Header />
+              <div className="space-y-8">
+                {children}
+              </div>
             </div>
             <Footer />
           </main>
@@ -48,7 +53,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="mt-12 text-center">
+    <footer className="mt-16 pt-8 border-t border-gray-100 dark:border-zinc-800 text-center">
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 tracking-tight">
         {links.map((link) => (
           <a
@@ -63,5 +68,23 @@ function Footer() {
         ))}
       </div>
     </footer>
+  );
+}
+
+function Header() {
+  return (
+    <header className="flex justify-between items-center mb-16 pb-6 border-b border-gray-100 dark:border-zinc-800">
+      <Link href="/" className="font-semibold text-lg hover:text-blue-500 transition-colors tracking-tight">
+        Basil Pulikuth
+      </Link>
+      <nav className="flex space-x-6 text-sm font-medium text-gray-600 dark:text-zinc-400">
+        <Link href="/" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
+          Home
+        </Link>
+        <Link href="/#writing" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
+          Writing
+        </Link>
+      </nav>
+    </header>
   );
 }

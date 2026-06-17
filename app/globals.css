@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-family-sans: 'Inter', sans-serif;
+  --font-family-sans: var(--font-sans), 'Inter', sans-serif;
+  --font-family-serif: var(--font-serif), 'Georgia', serif;
 }
 
 :root {
@@ -21,6 +22,7 @@ html {
 }
 
 body {
+  font-family: var(--font-sans), 'Inter', sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -28,6 +30,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-serif), 'Georgia', serif;
   text-wrap: balance;
 }
 
