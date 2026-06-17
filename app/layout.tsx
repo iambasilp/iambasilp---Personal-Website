@@ -47,7 +47,7 @@ function Footer() {
 
   return (
     <footer className="mt-12 text-center">
-      <div className="flex justify-center space-x-4 tracking-tight">
+      <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 tracking-tight">
         {links.map((link) => (
           <a
             key={link.name}
