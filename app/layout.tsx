@@ -11,7 +11,6 @@ import Header from './components/Header';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const lora = Lora({ subsets: ['latin'], variable: '--font-serif' });
-// helo
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://iambasilp.vercel.app'),
