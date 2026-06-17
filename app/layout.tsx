@@ -4,6 +4,7 @@ import { Inter, Lora } from 'next/font/google';
 import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 import ReadingEnhancers from './components/ReadingEnhancers';
+import ClickSound from './components/ClickSound';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const lora = Lora({ subsets: ['latin'], variable: '--font-serif' });
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
       <body className="antialiased tracking-tight">
-        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-16 dark:bg-[#161618] bg-[#FDFCF8] text-[#1c1c1a] dark:text-zinc-300">
           <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
             <div>
               <Header />
@@ -40,6 +41,7 @@ export default function RootLayout({
             </div>
             <Footer />
           </main>
+          <ClickSound />
           <Analytics />
         </div>
       </body>
