@@ -25,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
       <body className="antialiased tracking-tight">
-        <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
-          <main className="max-w-[60ch] mx-auto w-full space-y-6">
-            {children}
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 md:p-16 lg:p-24 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
+          <main className="max-w-2xl md:max-w-3xl mx-auto w-full flex-1 flex flex-col justify-between">
+            <div className="space-y-8">
+              {children}
+            </div>
+            <Footer />
           </main>
-          <Footer />
           <Analytics />
         </div>
       </body>
