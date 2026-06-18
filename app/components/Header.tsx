@@ -24,15 +24,15 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center mb-6 md:mb-10 pb-4 border-b border-[#E8E6E0] dark:border-zinc-800">
       <div>
-        <Link href="/" className="font-semibold text-base md:text-lg hover:text-gray-600 dark:hover:text-zinc-400 transition-colors tracking-tight block">
+        <Link href="/" prefetch={true} className="font-semibold text-base md:text-lg hover:text-gray-600 dark:hover:text-zinc-400 transition-colors tracking-tight block">
           Basil Pulikuth
         </Link>
       </div>
       <nav className="flex space-x-4 md:space-x-6 text-sm font-medium text-gray-600 dark:text-zinc-400">
-        <Link href="/" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
+        <Link href="/" prefetch={true} className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Home
         </Link>
-        <Link href="/writing" className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
+        <Link href="/writing" prefetch={true} className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Writing
         </Link>
         <div className="relative" ref={dropdownRef}>
