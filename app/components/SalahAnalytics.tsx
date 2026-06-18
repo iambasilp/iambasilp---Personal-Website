@@ -41,7 +41,8 @@ export default function SalahAnalytics({ data, year, month }: Props) {
     let currentStreak = 0
     let dateObj = new Date(referenceDateStr + 'T12:00:00Z')
     
-    for (let i = 0; i < 100; i++) {
+    // We put a high limit to prevent infinite loops, though the while breaks naturally
+    for (let i = 0; i < 10000; i++) {
       const dStr = `${dateObj.getUTCFullYear()}-${pad(dateObj.getUTCMonth() + 1)}-${pad(dateObj.getUTCDate())}`
       const record = data.find(d => d.date === dStr)
       

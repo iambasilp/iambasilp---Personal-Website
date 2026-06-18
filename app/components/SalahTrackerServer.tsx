@@ -27,15 +27,9 @@ export default async function SalahTrackerServer({ year, month }: Props) {
   const daysInMonth = new Date(year, month + 1, 0).getDate()
   const endDate = `${year}-${pad(month + 1)}-${pad(daysInMonth)}`
 
-  // Fetch historical data for analytics (last 100 days up to the end of this month)
-  const streakStartDate = new Date(year, month + 1, 0)
-  streakStartDate.setDate(streakStartDate.getDate() - 100)
-  const streakStartDateStr = `${streakStartDate.getFullYear()}-${pad(streakStartDate.getMonth() + 1)}-${pad(streakStartDate.getDate())}`
-
   const { data: trackingData } = await supabase
     .from('salah_tracking')
     .select('*')
-    .gte('date', streakStartDateStr)
     .lte('date', endDate)
     .order('date', { ascending: true })
 

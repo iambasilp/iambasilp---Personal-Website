@@ -32,6 +32,10 @@ export default function SalahTrackerGrid({ initialData, isAdmin, year, month }: 
   const supabase = createClient()
   const router = useRouter()
 
+  useEffect(() => {
+    setData(initialData)
+  }, [year, month, initialData])
+
   // Generate all days in the month
   const daysInMonth = new Date(year, month + 1, 0).getDate()
   const days = Array.from({ length: daysInMonth }, (_, i) => {
