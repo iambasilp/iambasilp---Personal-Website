@@ -43,6 +43,9 @@ export default function Header() {
                 setTimeout(() => setIsSocialsOpen(false), 200);
               }
             }}
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            aria-label="Connect and Socials Dropdown"
             className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1 focus:outline-none"
           >
             Connect
@@ -78,6 +81,9 @@ export default function Header() {
             {/* Socials Section */}
             <button 
               onClick={() => setIsSocialsOpen(!isSocialsOpen)}
+              aria-haspopup="true"
+              aria-expanded={isSocialsOpen}
+              aria-label="Toggle Social Media Links"
               className="w-full text-left px-3 pb-1 pt-3 mt-1 text-[10px] font-sans uppercase tracking-[0.2em] text-gray-400 dark:text-zinc-500 border-t border-gray-100 dark:border-zinc-800/50 flex justify-between items-center group transition-colors hover:text-gray-600 dark:hover:text-zinc-300 focus:outline-none"
             >
               Socials

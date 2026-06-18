@@ -1,32 +1,19 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { createClient } from './lib/supabase/server';
 
 const SITE_URL = 'https://iambasilp.vercel.app';
 
-async function getNoteSlugs(dir: string) {
-  const entries = await fs.readdir(dir, {
-    recursive: true,
-    withFileTypes: true
-  });
-  return entries
-    .filter((entry) => entry.isFile() && entry.name === 'page.mdx')
-    .map((entry) => {
-      const relativePath = path.relative(
-        dir,
-        path.join(entry.parentPath, entry.name)
-      );
-      return path.dirname(relativePath);
-    })
-    .map((slug) => slug.replace(/\\/g, '/'));
-}
-
 export default async function sitemap() {
-  const notesDirectory = path.join(process.cwd(), 'app', 'n');
-  const slugs = await getNoteSlugs(notesDirectory);
+  const supabase = await createClient();
 
-  const notes = slugs.map((slug) => ({
-    url: `${SITE_URL}/n/${slug}`,
-    lastModified: new Date().toISOString()
+  // Fetch all published posts
+  const { data: posts } = await supabase
+    .from('posts')
+    .select('slug, updated_at')
+    .eq('status', 'published');
+
+  const notes = (posts || []).map((post) => ({
+    url: `${SITE_URL}/writing/${post.slug}`,
+    lastModified: post.updated_at || new Date().toISOString()
   }));
 
   const routes = ['', '/writing'].map((route) => ({

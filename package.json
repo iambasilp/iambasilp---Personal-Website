@@ -8,15 +8,20 @@
   },
   "dependencies": {
     "@next/mdx": "16.1.5",
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.108.2",
     "@tailwindcss/postcss": "^4.1.8",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.16.0",
     "next": "16.2.3",
+    "next-mdx-remote": "^6.0.0",
     "postgres": "^3.4.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sugar-high": "^0.9.3"
+    "sugar-high": "^0.9.3",
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.29",
