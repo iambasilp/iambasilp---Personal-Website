@@ -38,12 +38,28 @@ export default async function KeystonePage(props: Props) {
   return (
     <article className="mt-12 mb-24 animate-content-fade">
       <header className="mb-12">
-        <h1 className="text-3xl sm:text-4xl font-medium text-[#2C2C2A] dark:text-[#E4E3DF] tracking-tight mb-4">
-          Keystone Habit
-        </h1>
-        <p className="text-gray-500 dark:text-zinc-400">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <h1 className="text-3xl sm:text-4xl font-medium text-[#2C2C2A] dark:text-[#E4E3DF] tracking-tight">
+            Keystone Habit
+          </h1>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold bg-zinc-100 dark:bg-[#1A1A1A] text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Official Start: 20 Jun 2026
+          </span>
+        </div>
+        
+        <p className="text-gray-500 dark:text-zinc-400 max-w-2xl mb-8">
           Tracking the 5 daily compulsory prayers (Salah) as the foundation for all other habits.
         </p>
+
+        {/* Identity Level Commitment */}
+        <div className="p-6 bg-white dark:bg-[#151515] border border-zinc-200 dark:border-zinc-800 rounded-2xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-zinc-900 dark:bg-zinc-500"></div>
+          <span className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-bold mb-2 block">Identity Architecture</span>
+          <p className="text-lg md:text-xl font-serif text-[#2C2C2A] dark:text-[#E4E3DF] italic">
+            "I am the type of person who does what is required right now."
+          </p>
+        </div>
       </header>
 
       <Suspense fallback={<TrackerSkeleton />}>

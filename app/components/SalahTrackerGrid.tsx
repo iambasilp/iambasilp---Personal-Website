@@ -29,6 +29,7 @@ const PRAYERS = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'] as const
 export default function SalahTrackerGrid({ initialData, isAdmin, year, month }: Props) {
   const [data, setData] = useState(initialData)
   const [activePopup, setActivePopup] = useState<{ date: string, prayer: typeof PRAYERS[number], currentValue: number } | null>(null)
+  const [voteReward, setVoteReward] = useState<boolean>(false)
   const supabase = createClient()
   const router = useRouter()
 
@@ -60,6 +61,14 @@ export default function SalahTrackerGrid({ initialData, isAdmin, year, month }: 
 
     // Close popup immediately
     setActivePopup(null)
+
+    // Trigger identity reward if casting a new "vote"
+    const prevRecord = days.find(d => d.date === dateStr)!.record
+    if (newValue > 0 && prevRecord[prayer] === 0) {
+      setVoteReward(false) // reset animation if triggered quickly
+      setTimeout(() => setVoteReward(true), 50)
+      setTimeout(() => setVoteReward(false), 3500)
+    }
 
     // Optimistic update
     const updatedRecord = { ...days.find(d => d.date === dateStr)!.record, [prayer]: newValue }
@@ -202,6 +211,23 @@ export default function SalahTrackerGrid({ initialData, isAdmin, year, month }: 
           )
         })}
       </div>
+
+      {/* Identity Reward Toast */}
+      {mounted && voteReward && createPortal(
+        <div 
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[9999] animate-in slide-in-from-bottom-10 fade-in zoom-in duration-500 pointer-events-none"
+          role="status"
+          aria-live="polite"
+        >
+          <div className="bg-[#151515] dark:bg-white text-white dark:text-[#151515] px-6 py-4 rounded-2xl shadow-2xl flex flex-col items-center border border-zinc-800 dark:border-zinc-200">
+            <span className="text-[10px] uppercase tracking-widest font-bold opacity-70 mb-1">Identity Vote Cast</span>
+            <p className="text-sm font-serif italic text-center">
+              Evidence of your new identity is building.
+            </p>
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* Phase Progression Modal using React Portal */}
       {activePopup && mounted && createPortal((
