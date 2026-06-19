@@ -28,7 +28,7 @@ export default function Header() {
           Basil Pulikuth
         </Link>
       </div>
-      <nav className="flex space-x-4 md:space-x-6 text-sm font-medium text-gray-600 dark:text-zinc-400">
+      <nav className="flex items-center space-x-4 md:space-x-6 text-sm font-medium text-gray-600 dark:text-zinc-400">
         <Link href="/" prefetch={true} className="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors">
           Home
         </Link>

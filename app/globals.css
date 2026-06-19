@@ -19,6 +19,23 @@
   animation: contentFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Minimalist Scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--tw-prose-counters, #e4e4e7);
+  border-radius: 20px;
+}
+@media (prefers-color-scheme: dark) {
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #27272a;
+  }
+}
+
 :root {
   --sh-class: #7aa2f7;
   --sh-sign: #89ddff;

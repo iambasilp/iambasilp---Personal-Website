@@ -15,10 +15,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Keystone Habit | Basil Pulikuth',
     description: 'Tracking the 5 daily compulsory prayers (Salah).',
-  },
-  robots: {
-    index: false,
-    follow: false,
   }
 }
 
