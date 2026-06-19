@@ -168,7 +168,7 @@ export default function LiveStreakBadge() {
       <div 
         role="dialog"
         aria-label="Accountability Dashboard"
-        className={`absolute left-0 md:left-auto md:right-0 top-full mt-3 w-[90vw] max-w-[440px] md:w-[440px] bg-white dark:bg-[#151515] border border-[#E8E6E0] dark:border-zinc-800 shadow-2xl rounded-2xl p-5 flex flex-col z-50 transition-all duration-300 transform origin-top-left md:origin-top-right ${isOpen ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-2 invisible'}`}
+        className={`fixed left-4 right-4 top-[15%] z-[100] max-h-[80vh] overflow-y-auto md:absolute md:left-auto md:right-0 md:top-full md:mt-3 md:w-[440px] md:max-h-none md:overflow-y-visible bg-white dark:bg-[#151515] border border-[#E8E6E0] dark:border-zinc-800 shadow-2xl rounded-2xl p-5 flex flex-col transition-all duration-300 transform md:origin-top-right ${isOpen ? 'opacity-100 scale-100 md:translate-y-0 visible' : 'opacity-0 scale-95 md:-translate-y-2 invisible'}`}
       >
         <div className="flex flex-col gap-5">
           {/* Header & Identity */}
