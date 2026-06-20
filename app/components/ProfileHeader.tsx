@@ -82,14 +82,28 @@ export default function ProfileHeader() {
             <span className="absolute inset-0 border-2 border-zinc-500/20 rounded-2xl animate-ping group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
             
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
-              <Image
-                src="/images/iambasilp.png"
-                alt="Basil Pulikuth - Product Builder and System Explorer"
-                fill
-                sizes="(max-width: 640px) 96px, 112px"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                priority
-              />
+              {/* Light Mode Image (Visible in light mode, hidden in dark mode) */}
+              <div className="absolute inset-0 block dark:hidden">
+                <Image
+                  src="/images/iambasilp-light.png"
+                  alt="Basil Pulikuth - Product Builder and System Explorer"
+                  fill
+                  sizes="(max-width: 640px) 96px, 112px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
+              </div>
+              {/* Dark Mode Image (Hidden in light mode, visible in dark mode) */}
+              <div className="absolute inset-0 hidden dark:block">
+                <Image
+                  src="/images/iambasilp-dark.png"
+                  alt="Basil Pulikuth - Product Builder and System Explorer"
+                  fill
+                  sizes="(max-width: 640px) 96px, 112px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
+              </div>
             </div>
           </button>
         </div>
